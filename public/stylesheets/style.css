@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f2ec;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #ffffffea;
+  padding: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+footer {
+  background-color: #ffffffea;
+}
+
+.logo-gauche {
+  max-width: 150px;
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logo-droite {
+  max-width: 150px;
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-links {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.nav-link {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #000000;
+  font-weight: 500;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding-bottom: 44px;
+  border-bottom: 5px solid transparent;
+}
+
+.nav-link:hover {
+  color: #000000;
+  border-bottom: 5px solid #00156a;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-link {
+    margin: 10px 0;
+  }
+}
+
+header h1 {
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+}
+
+.banner {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  max-width: 1200px;
+  padding: 40px;
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Arleta', sans-serif;
+  color: #010101;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+a {
+  font-family: 'Arleta', sans-serif;
+  font-size: 140%;
+}
+
+
+p {
+  font-family: 'Lato', sans-serif;
+  font-size: 17px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  flex-direction: column;
+}
+
+/*//////////////// INDEX ///////////////////*/
+
+.video-index {
+  position: relative;
+  width: 100%;
+  height: 70vh; 
+  overflow: hidden;
+}
+
+.video-index video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1; 
+}
+
+.logo-slogan-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh; 
+    color: #fff;
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.logo-slogan {
+  text-align: center;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.slogan {
+    margin-top: 10px;
+    color: #000;
+}
+
+.logo {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+
+
+
+/*//////////////// ???? ///////////////////*/

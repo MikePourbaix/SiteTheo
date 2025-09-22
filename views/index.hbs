@@ -1,0 +1,82 @@
+<section class="video-index">
+    <video id="bgVideo" autoplay muted playsinline></video>
+</section>
+
+
+<br><br><br><br><br><br>
+
+
+
+
+<section class="logo-slogan-section">
+    <div class="logo-slogan">
+        <img src="photos/logo-test.png" alt="Logo" class="reveal logo">
+        <p class="reveal slogan">Investir avec sérénité, construire avec confiance.</p>
+    </div>
+</section>
+
+
+
+
+<script> // JavaScript pour gérer les vidéos
+    const videos = [
+        "/videos/video-index.mp4",
+        "/videos/video-index2.mp4"
+    ];
+
+    const videoEl = document.getElementById("bgVideo");
+    let index = 0;
+
+    function playVideo(i) {
+        videoEl.src = videos[i];
+        videoEl.play();
+    }
+
+    videoEl.addEventListener("ended", () => {
+        index = (index + 1) % videos.length;
+        playVideo(index);
+    });
+
+    playVideo(index);
+</script>
+
+<script> // JavaScript pour le scroll auto
+    document.addEventListener('DOMContentLoaded', () => {
+        let userHasScrolled = false;
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                userHasScrolled = true;
+            }
+        });
+
+        const SCROLL_DELAY_MS = 5000;
+        setTimeout(() => {
+            if (!userHasScrolled) {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth"
+                });
+            }
+        }, SCROLL_DELAY_MS);
+    });
+
+</script>
+
+<script> // JavaScript pour les animations logo-slogan au scroll
+    document.addEventListener("DOMContentLoaded", () => {
+        const reveals = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                } else {
+                    entry.target.classList.remove("visible"); // redevient invisible si l'utilisateur remonte
+                }
+            });
+        }, { threshold: 0.2 });
+
+        reveals.forEach(el => observer.observe(el));
+    });
+</script>
