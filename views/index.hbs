@@ -1,18 +1,78 @@
+{{!-- video --}}
 <section class="video-index">
     <video id="bgVideo" autoplay muted playsinline></video>
 </section>
 
-
-<br><br><br><br><br><br>
-
-
-
-
+{{!-- logo-slogan --}}
 <section class="logo-slogan-section">
     <div class="logo-slogan">
         <img src="photos/logo-test.png" alt="Logo" class="reveal logo">
         <p class="reveal slogan">Investir avec sérénité, construire avec confiance.</p>
     </div>
+</section>
+
+{{!-- services --}}
+<section class="services-section">
+    <div class="services-container">
+        <h2 class="section-title reveal">Nos Services</h2>
+        <div class="services-list">
+            <div class="service reveal">
+                <div class="service-content">
+                    <h3>Conseil en investissement</h3>
+                    <p>Analyse personnalisée et stratégies adaptées à votre profil.</p>
+                </div>
+            </div>
+            <div class="service reveal">
+                <div class="service-content">
+                    <h3>Planification financière</h3>
+                    <p>Optimisez votre patrimoine et préparez sereinement l’avenir.</p>
+                </div>
+            </div>
+            <div class="service reveal">
+                <div class="service-content">
+                    <h3>Gestion de portefeuille</h3>
+                    <p>Suivi professionnel pour maximiser vos rendements.</p>
+                </div>
+            </div>
+            <div class="service reveal">
+                <div class="service-content">
+                    <h3>Accompagnement immobilier</h3>
+                    <p>Investissements immobiliers sécurisés et rentables.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{!-- temoignages --}}
+<section class="testimonials-section">
+    <div class="testimonials-container">
+        <h2 class="section-title">Ils nous font confiance</h2>
+
+        <div class="testimonials-row" id="row1">
+            <div class="testimonial">"Grâce à leur expertise, j'ai doublé mes rendements en un an." – Sophie M.</div>
+            <div class="testimonial">"Un accompagnement clair et rassurant du début à la fin." – Marc D.</div>
+            <div class="testimonial">"Je recommande vivement pour toute gestion patrimoniale sérieuse." – Claire L.
+            </div>
+            <div class="testimonial">"Leur équipe m’a aidé à sécuriser mes investissements immobiliers." – Julien P.
+            </div>
+        </div>
+
+        <div class="testimonials-row" id="row2">
+            <div class="testimonial">"Un service personnalisé qui correspond parfaitement à mes besoins." – Émilie R.
+            </div>
+            <div class="testimonial">"Professionnels et toujours disponibles pour répondre à mes questions." – Thomas G.
+            </div>
+            <div class="testimonial">"Je me sens en confiance avec leur suivi régulier et transparent." – Nadia F.</div>
+            <div class="testimonial">"Des conseils pertinents qui m’ont permis d’optimiser mes placements." – Laurent H.
+            </div>
+        </div>
+    </div>
+</section>
+
+{{!-- newsletter --}}
+<section>
+   
 </section>
 
 
@@ -40,6 +100,7 @@
     playVideo(index);
 </script>
 
+
 <script> // JavaScript pour le scroll auto
     document.addEventListener('DOMContentLoaded', () => {
         let userHasScrolled = false;
@@ -54,7 +115,7 @@
         setTimeout(() => {
             if (!userHasScrolled) {
                 window.scrollTo({
-                    top: window.innerHeight,
+                    top: window.innerHeight * 0.8,
                     behavior: "smooth"
                 });
             }
@@ -62,6 +123,7 @@
     });
 
 </script>
+
 
 <script> // JavaScript pour les animations logo-slogan au scroll
     document.addEventListener("DOMContentLoaded", () => {
@@ -72,11 +134,97 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.add("visible");
                 } else {
-                    entry.target.classList.remove("visible"); // redevient invisible si l'utilisateur remonte
+                    entry.target.classList.remove("visible");
                 }
             });
         }, { threshold: 0.2 });
 
         reveals.forEach(el => observer.observe(el));
+    });
+</script>
+
+
+<script> // JavaScript pour les animations services au scroll et effets services
+    document.addEventListener("DOMContentLoaded", () => {
+        const reveals = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add("visible");
+                    }, index * 200);
+                } else {
+                    entry.target.classList.remove("visible");
+                }
+            });
+        }, { threshold: 0.2 });
+
+        reveals.forEach(el => observer.observe(el));
+    });
+
+
+    // Effet 3D dynamique
+    const services = document.querySelectorAll(".service");
+
+    services.forEach(service => {
+        service.addEventListener("mousemove", (e) => {
+            const rect = service.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const cx = rect.width / 2;
+            const cy = rect.height / 2;
+
+            const rotateX = ((y - cy) / cy) * 15;
+            const rotateY = ((x - cx) / cx) * 15;
+
+            service.style.transform = `translateY(-10px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+            service.style.boxShadow = `${-rotateY * 3}px ${rotateX * 3}px 50px rgba(0,0,0,0.4)`;
+
+            const content = service.querySelector(".service-content");
+            content.style.transform = `translateX(${rotateY / 4}px) translateY(${-rotateX / 4}px)`;
+        });
+
+        service.addEventListener("mouseleave", () => {
+            service.style.transform = "translateY(0) rotateX(0) rotateY(0)";
+            service.style.boxShadow = "0 10px 20px rgba(0,0,0,0.2)";
+
+            const content = service.querySelector(".service-content");
+            content.style.transform = "translateX(0) translateY(0)";
+        });
+    });
+</script>
+
+
+<script> // JavaScript pour les temoignages
+    document.addEventListener("DOMContentLoaded", () => {
+        const rows = document.querySelectorAll(".testimonials-row");
+
+        rows.forEach((row, index) => {
+            const children = Array.from(row.children);
+            const gap = 40;
+            const originalWidth = children.reduce((total, el) => total + el.offsetWidth + gap, 0);
+
+            row.innerHTML += row.innerHTML + row.innerHTML;
+
+            if (index % 2 !== 0) row.style.flexDirection = "row-reverse";
+
+            let scroll = 0;
+            const speed = 0.3;
+
+            function animate() {
+                scroll += speed;
+
+                if (scroll >= originalWidth) scroll = 0;
+
+                row.style.transform = index % 2 === 0
+                    ? `translateX(${-scroll}px)`
+                    : `translateX(${scroll}px)`;
+
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        });
     });
 </script>
