@@ -11,7 +11,7 @@ body {
 }
 
 header {
-  background-color: #ffffffea;
+  background-color: #0d264a;
   padding: 20px 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   min-height: 120px;
@@ -22,11 +22,12 @@ header {
 }
 
 footer {
-  background-color: #ffffffea;
+  background-color: #0d264a;
+  color: #fff;
 }
 
 .logo-gauche {
-  max-width: 150px;
+  max-width: 100px;
   position: absolute;
   left: 30px;
   top: 50%;
@@ -49,7 +50,7 @@ footer {
 .nav-link {
   margin: 0 15px;
   text-decoration: none;
-  color: #000000;
+  color: #ffffff;
   font-weight: 500;
   transition: color 0.3s ease, border-bottom 0.3s ease;
   padding-bottom: 44px;
@@ -57,8 +58,8 @@ footer {
 }
 
 .nav-link:hover {
-  color: #000000;
-  border-bottom: 5px solid #00156a;
+  color: #363636;
+  border-bottom: 5px solid #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -195,10 +196,15 @@ p {
 }
 
 .services-section .services-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);    
     justify-content: center;
     gap: 40px;
+}
+
+.services-section .services-container {
+    max-width: 1200px;   
+    margin: 0 auto;      
 }
 
 .services-section .service {
@@ -235,6 +241,13 @@ p {
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
+
+.services-list a.service {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 
 
 /* section temoignages */
@@ -274,4 +287,88 @@ p {
 
 
 
-/*//////////////// ???? ///////////////////*/
+
+/*//////////////// Services ///////////////////*/
+
+.services-page {
+  padding: 80px 20px;
+  background-color: #f7f2ec;
+}
+
+.services-header {
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+  text-align: center;
+}
+
+.services-header h1 {
+  font-size: 2.8rem;
+  color: #0d264a;
+  margin-bottom: 20px;
+}
+
+.services-header p {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.8;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-block:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: #00156a;
+  flex-shrink: 0;
+}
+
+.service-text h3 {
+  margin-bottom: 12px;
+  color: #0d264a;
+}
+
+.service-text p {
+  color: #444;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.service-btn {
+  padding: 10px 18px;
+  background-color: #0d264a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.service-btn:hover {
+  background-color: #00156a;
+  transform: scale(1.05);
+}
