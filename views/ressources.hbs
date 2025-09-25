@@ -1,1 +1,23 @@
-ressources
+<section class="blog-page">
+    <div class="blog-header">
+        <h1>Ressources / Blog</h1>
+        <p>Articles pédagogiques et analyses de marché pour mieux comprendre vos investissements.</p>
+    </div>
+
+    <div class="blog-grid">
+        {{#if articles.length}}
+        {{#each articles}}
+        <article class="blog-card">
+            {{#if image}}
+            <img src="{{image}}" alt="{{title}}" class="blog-image" />
+            {{/if}}
+            <h3>{{this.title}}</h3>
+            <p>{{this.summary}}</p>
+            <a href="{{this.link}}" class="blog-btn" target="_blank" rel="noopener noreferrer">Lire l'article</a>
+        </article>
+        {{/each}}
+        {{else}}
+        <p>Aucun article disponible pour le moment. Revenez plus tard !</p>
+        {{/if}}
+    </div>
+</section>
