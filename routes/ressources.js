@@ -6,7 +6,7 @@ const parser = new RSSParser;
 
 router.get('/', async (req, res) => {
   try {
-    const feed = await parser.parseURL("https://www.lecho.be/rss/fonds.xml");
+    const feed = await parser.parseURL("https://fr.investing.com/rss/market_overview_Opinion.rss");
 
     const articles = feed.items.map(item => ({
       title: item.title,

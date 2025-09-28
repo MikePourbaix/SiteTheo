@@ -407,6 +407,10 @@ p {
   margin: 0 auto;
 }
 
+.blog-grid p {
+  color: #0d264a;
+}
+
 .blog-card {
   background: #fff;
   padding: 30px;
