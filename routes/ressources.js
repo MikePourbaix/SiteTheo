@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 
     const articles = feed.items.map(item => ({
       title: item.title,
-      summary: item.contentSnippet || item.content || "",
+      summary: item.contentSnippet || item.content || "", 
       link: item.link,
       image: item.enclosure?.url || (item['media:content'] ? item['media:content'].url : null)
     }));
