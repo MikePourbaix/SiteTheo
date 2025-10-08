@@ -14,7 +14,7 @@ header {
   background-color: #0d264a;
   padding: 20px 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  min-height: 120px;
+  min-height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,7 +128,7 @@ header {
   color: #ffffff;
   font-weight: 500;
   transition: color 0.3s ease, border-bottom 0.3s ease;
-  padding-bottom: 44px;
+  padding-bottom: 54px;
   border-bottom: 5px solid transparent;
 }
 
